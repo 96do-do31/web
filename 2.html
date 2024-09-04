@@ -1,20 +1,140 @@
 <!DOCTYPE html>
 <head>
-    <title>WEB1 - CSS</title>
+    <title>WEB2 - CSS</title>
     <meta charset="utf-8">
+    <style>
+        a {
+            color:black;
+            text-decoration: none;
+        }
+        .choose{
+            color:green;
+        }
+        h1 {
+            font-size: xx-large;
+            text-align: center;
+            border-bottom: 1px solid gray;
+        }
+        ol{
+            border-right: 1px solid gray;
+            display: inline-block;
+            padding-right: 20px;
+        }
+        #grid{
+            display: grid;
+            grid-template-columns:150px 1fr;
+        }
+        @media(max-width:500px){
+            #grid{
+                display: block;
+            }
+            ol{
+                display: block;
+            }
+            h1{
+                border-bottom:none;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <h1><a href="index.html">WEB</a></h1>
+    <div id="grid">
+        <div>
     <ol>
         <li><a href="1.html">HTML</a></li>
-        <li><a href="2.html">CSS</a></li>
+        <li><a href="2.html" style="color:red; text-decoration:underline;">CSS</a></li>
         <li><a href="3.html">JavaScript</a></li>
     </ol>
+        </div>
+    
+        <div>
     <h2>CSS</h2>
-    <p></p>
+    <p style="color:blue;">
+        CSS는 HTML과 완전히 다른 언어로 HTML은 정보를 담고, CSS는 정보를 꾸미는 역할을 한다.
+        CSS 등장 이전에는 font와 같은 태그 들이 있었으나 이러한 태그들은 정보를 담고 있지 않아 정보를 담고 있는 태그와 분리할 필요성이 대두되었다. 
+        그래서 등장한게 CSS이다. CSS는 head 태그 안에서 특정 태그에 대한 속성을 부여할 수도 있고, 기존의 태그 안에서 작동할 수도 있다. 
+        이렇게 다른 언어를 HTML에서 읽어드릴 수 있게 하는 속성이 style 이다. 이 속성은 CSS 언어를 담고 있으므로 CSS 언어로 해석하라는 의미를 담고 있다. 
+        이를 통해 웹은 CSS를 HTML과 같이 인식하여 읽어드릴 수 있는 것이다. 
+    </p>
 
-    <h3></h3>
-    <p></p>
+    <h3 style="text-decoration:underline;">속성-style</h3>
+    <p>
+        태그의 속성 style는 그 값으로 css 효과가 반드시 들어온다는 것을 의미하고, style 태그는 선택자(태그)에게 지정되는 효과를 담는다.
+        속성 style는 style="효과"로 쓰여지고, 태그 style는 태그 선택자(표현되는 대상 태그) {효과;} 태그로 쓰여진다. 
+        <br> 즉, selector{declaration}이 기본적인 형식이고, declaration은 property:value;로 구성되어 진다. 
+    </p>
+
+    <h3 class="choose">selector(선택자)과 property(효과)</h3>
+    <p class="choose">
+        이제 원하는 표현을 위해 선택자와 효과를 검색하면 된다. 예를 들어 css text size property가 있다.
+        <br> HTML 속성 class를 이용하면 지정된 class를 선택하여 효과를 줄수 있다. 이를 통해 동일한 태그에 대해서 다양한 효과를 줄 수 있게 된다.
+        그러나 이렇게 사용되면 가장 나중에 쓰여진 효과가 나타나게 된다. 그래서 이를 해결하는 것이 id 속성이다. <strong style="color:blue;">즉, id 선택자가 class 선택자 태그 선택자 순으로 중요도가 높아진다.</strong>
+    </p>
+
+    <h3><a href="box.html">박스모델</a></h3>
+    <p>
+        h1과 a 태그를 비교해 보면 h1은 화면 전체를 이용하고 a는 태그로 감싸진 크기만큼을 갖는다.
+        이처럼 html의 태그는 성격에 따라 화면 전체를 이용하기도 그렇지 않기도 한다.
+        이때 화면 전체를 사용하는 태그는 block, level, element 자기 자신의 부피만큼을 갖는 것을 inline element라 한다.
+    </p>
+
+    <h3><a href="grid.html">그리드</a></h3>
+    <p>
+        디자인을 하기 위해서는 태그가 있어야 한다. 그런데 디자인만을 위해 태그를 사용하는 것은 CSS가 만들어진 목적에 맞지 않다. 
+        그래서 이럴때 사용할 수 있도록 있는 무색무취의 태그가 바로 div와 span이다. div는 element이고, span은 inline이다.
+        <strong style="color:red;">최신의 기술을 사용할 때는 현재사용해도 되는지 데이터를 통해 확인해야 하는데 이때 사용하는 사이트가 <a href="http://caniuse.com">caniuse.com</a>이다.</strong>
+    </p>
+
+    <h3><a href="MediaQuery.html">반응형 디자인-미디어 쿼리</a></h3>
+    <p>
+        웹의 크기에 따라 최적으로 보여줄 수 있도록 반응하는 웹
+    </p>
+
+    <h3>CSS코드의 재사용-link 태그</h3>
+    <p>
+        만약 모든 페이지의 CSS 코드를 바꿔야 한다면? 무지 힘들겠다... 그래서 모든 페이지에 적용되는 CSS코드를 한번에 다 적용해 보자...
+        <br>CSS 파일을 따로 만들고 이를 각 페이지에 link태그로 연결한다면? 모든페이지에 스타일을 적용할 필요가 없어진다...
+        그런데 네트워크 상으로는 파일을 불러오는 작업이 추가되어 손해인데 이는 caching을 통해 해결된다. 
+    </p>
+        </div>
+    </div>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66d6ef5750c10f7a00a36d39/1i6rpdrlf';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+    <!--End of Tawk.to Script-->
+
+    <!--Start of disqus.com Script-->
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://web1-7g3f891vxj.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <!--End of disqus.com Script-->
 </body>
 </html>

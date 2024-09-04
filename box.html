@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <head>
+        <title>CSS-box</title>
+        <meta charset="utf-8">
+        <style>
+            /*
+            element
+            */
+            h1{
+                border-width: 5px;
+                border-color: red;
+                border-style: solid;
+            }
+            /*
+            inline element
+            */
+            a{
+                border-width: 5px;
+                border-color: red;
+                border-style: solid;
+            }
+            h2, .short{
+                border-width: 5px;
+                border-color: red;
+                border-style: solid;
+            }
+            h3, #short01{
+                border:5px red solid;
+            }
+            h4{
+                border:5px green solid;
+                padding: 20px;
+                margin: 20px;
+                display:block;
+                width:100px;
+                height: 30px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>BOX</h1>
+        <p>
+            h1과 a 태그를 비교해 보면 h1은 화면 전체를 이용하고 a는 태그로 감싸진 크기만큼을 갖는다.
+            이처럼 html의 태그는 성격에 따라 화면 전체를 이용하기도 그렇지 않기도 한다.
+            이때 화면 전체를 사용하는 태그는 block, level, element 자기 자신의 부피만큼을 갖는 것을 <a href="2.html">inline element</a>라 한다.
+        </p>
+
+        <h2>줄이기1</h2>
+        <p class="short">
+            중복 없애기
+        </p>
+
+        <h3>줄이기2</h3>
+        <p class="short" id="short01">
+            중복 더 없애기
+        </p>
+        <h4>pading, margin</h4>
+    </body>
+</html>
