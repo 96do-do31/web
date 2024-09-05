@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <title>javascript-script</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>script</h1>
+    <div id="ex">
+        <script>
+            document.write(1+1);
+        </script>
+        <p>(1+1)</p>
+        상단은 자바스크립트 하단은 태그이다. 둘다 (1+1)을 적었는데 나타나는 것은 다르다.
+        즉, 자바는 동적이고 HTML은 정적이다.
+    </div>
+
+    <h1>이벤트</h1>
+    <div id="ex">
+        <input type="button" value="click" onclick="alert('hi')">
+        버튼을 클릭하면 경고창(alert)이 이벤트 되도록 되어 있다. 여기서 경고창을 생성하게 되는 입력인 onclick과 같은 것들을 이벤트라고 한다.
+    </div>
+
+    <h1>비교 연산자(comparison operators)와 Boolean 데이터 타입</h1>
+    <div id="ex">
+        <h2>===</h2>
+        <h3>1===1</h3>
+        <script>
+            document.write(1===1);
+        </script>
+        <h3>1===2</h3>
+        <script>
+            document.write(1===2);
+        </script>
+        <br>
+        <br> 비교연산자: 양쪽의 값을 비교하여 같으면 true 다르면 false를 출력하게 된다. 그리고 여기서 true와 false를 묶으면 Boolean 이라는 데이터 타입이 된다.
+        <br> 데이터 타입에는 Number, string, boolean을 배웠다.
+    </div>
+
+    <h1>배열 array</h1>
+    <div id="ex">
+        <h3>Array</h3>
+        <h3>Syntax</h3>
+        <h4>배열 만들기</h4>
+        <script>
+            var coworkers = ["egoing","san"];
+        </script>
+        <h4>배열 추가하기</h4>
+        <script>
+            coworkers.push('do')
+            coworkers.push('baek')
+        </script>
+        <h4>배열 가지고 오기</h4>
+        <script>
+            document.write(coworkers[0]);
+            document.write("<br>"+coworkers[1]);
+            document.write("<br>"+coworkers.length);
+        </script>
+    </div>
+
+    <h1> 반복문 loop</h1>
+    <div id="ex">
+        <ul>
+            <script>
+                document.write('<li>1</li>');
+                document.write('<li>2</li>');
+                document.write('<li>3</li>');
+                document.write('<li>4</li>');
+            </script>
+        </ul>
+        <ol>
+            <script>
+                document.write('<li>1</li>');
+                var i = 0;
+                while(i < 3){
+                    document.write('<li>2</li>');
+                    document.write('<li>3</li>');
+                    i = i + 1;
+                }
+                document.write('<li>4</li>');
+            </script>
+        </ol>
+    </div>
+
+    <h1>array & loop</h1>
+    <div id="ex">
+        <script>
+            var you = ['1','2','3','4','5']
+        </script>
+        <ul>
+            <script>
+                var i = 0;
+                while(i < you.length){
+                    document.write('<li>'+you[i]+'</li>')
+                    i = i + 1;
+                }
+            </script>
+        </ul>
+    </div>
+
+    <h1>Function</h1>
+    <div id="'ex">
+        <h2>Basic</h2>
+        <ul>
+            <script>
+                function two(){
+                    document.write('<li>2-1</li>');
+                    document.write('<li>2-2</li>');
+                }
+                document.write('<li>1</li>');
+                two();
+                document.write('<li>3</li>');
+                two();
+            </script>
+        </ul>
+        <h2>Parameter & Argument</h2>
+        <script>
+            function onePlusOne(){
+                document.write(1+1+'<br>');
+            }
+            onePlusOne();
+            function sum(left, right){
+                document.write(left+right+'<br>');
+            }
+            sum(2,3) // 5
+            function sumColorRed(left, right){
+                document.write('<div style="color: red;">'+left+right+'</div>');
+            }
+            sumColorRed(2,3) // 5
+        </script>
+        <h2>Return</h2>
+        <script>
+            function sum2(left, right){
+                return left+right
+            }
+            document.write(sum2(2,3)+'<br>')
+            document.write('<div style="color: red;">'+sum2(2,3)+'</div><br>')
+        </script>
+    </div>
+
+    <h1>Object</h1>
+    <div id="ex">
+        <h2>Creat</h2>
+        <script>
+            var creat = {
+                "ceo": "san",
+                "cfo": "do"
+            };
+            document.write("ceo:"+creat.ceo+"<br>");
+            document.write("cfo:"+creat.cfo+"<br>");
+            creat.cto = "san";
+            document.write("cto:"+creat.cto+"<br>");
+            creat["c p"] = "doosan";
+            document.write("c p:"+creat["c p"]+"<br>");
+        </script>
+        <h2>Iterate</h2>
+        <script>
+            for(var key in creat){
+                //document.write(key+'<br>');
+                //document.write(creat[key]+'<br>')
+                document.write(key+' : '+creat[key]+'<br>');
+            }
+        </script>
+        <h2>property & method</h2>
+        <script>
+            creat.showAll = function(){
+                for(var key in this){
+                    document.write(key+' : '+this[key]+'<br>');
+                }
+            }
+            creat.showAll();
+        </script>
+    </div>
+
+</body>
+</html>

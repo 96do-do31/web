@@ -30,3 +30,7 @@ ol{
         border-bottom:none;
     }
 }
+#ex{
+    border: 2px solid gray;
+    margin-top: 20px;
+}

@@ -3,10 +3,10 @@
     <title>WEB1 - JavaScript</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <header>
     <h1><a href="index.html">WEB</a></h1>
     <div id="grid">
         <div>
@@ -16,9 +16,176 @@
                 <li><a href="3.html"style="color:red; text-decoration:underline;">JavaScript</a></li>
             </ol>
         </div>
+        
         <div>
-            <h2>CSS</h2>
+            <h2><a a href="https://www.w3schools.com/js/default.asp">javascript</a></h2>
             <p>
+                HTML은 정보, CSS는 디자인(효과), JavaScript는 사용자와의 상호작용하는 기능을 담는다.
+            </p>
+
+            <h3><a href="ex_javascript.html">JavaScript 실행하기 - script 태그</a></h3>
+            <p>
+                그렇기에 javascript는 HTML 위에서 동작하게 되다. 이를 위해서는 CSS와 마찬가지고 자바스크립트가 시작된다는 것을 알리는 태그가 필요하다.
+            </p>
+
+            <h3><a href="ex_javascript.html">이벤트(event) - input 태그</a></h3>
+            <p>
+                웹에서 발생하는 사건들(변화?)를 이벤트라고 한다.
+            </p>
+
+            <h3>콘솔(console)</h3>
+            <p>
+                웹브라우저에서 검사 console을 통해서 javascript를 실행할 수 있다.
+                이는 이미 만들어진 웹페이지를 콘솔을 통해 간단하게 해결할 수 있게 된다.
+            </p>
+
+            <h3>data type - number & string</h3>
+            <p>
+                javascript string에는 다양한 기능이 있다. 
+            </p>
+
+            <h3>변수와 대입 연산자</h3>
+            <p>
+                variable, constant
+                <br> 변수를 지정할 때는 var을 앞에 써야 한다.
+            </p>
+
+            <h3>웹 브라우저를 동적으로 바꿔보자</h3>
+            <input type="button" value="black" onclick="
+                document.querySelector('body').style.backgroundColor='black';
+                document.querySelector('body').style.color='white';
+            ">
+            <input type="button" value="white" onclick="
+                document.querySelector('body').style.backgroundColor='white';
+                document.querySelector('body').style.color='black';
+            ">
+            <h3>조건문</h3>
+            <p>
+                black 버튼과 white 버튼이 두개 있는게 아니라 하나의 버튼으로 만들고 싶어졌다. 이런 것을 toggle이라 한다.
+                <br> 즉 어두운 화면에서는 white 버튼이 활성되고, 밝은 화면에서는 black 버튼이 활성되게 하는 것이다.
+                <br><u><a href="ex_javascript.html">이를 위해서는 비교 연산자와 Boolean 데이터 타입을 알아야 한다.</a></u>
+            </p>
+            <input id="black_white" type="button" value="black" onclick="
+                if(document.querySelector('#black_white').value === 'black'){
+                    document.querySelector('body').style.backgroundColor='black';
+                    document.querySelector('body').style.color='white';
+                    document.querySelector('#black_white').value = 'white';
+                }else{
+                    document.querySelector('body').style.backgroundColor='white';
+                    document.querySelector('body').style.color='black';
+                    document.querySelector('#black_white').value = 'black';
+                }
+            ">
+
+            <h3>refactoring</h3>
+            <p>
+                먼저 버튼이 두개가 있어 서로 id 값에서 중첩된다. 이를 해결하고 간단하게 만드는 것이 해당 태그 내에서만 작동할 수 있도록 하는 것이다. 이때 사용하는 것이 this이다.
+                <br>그런데 아직도 중복되는 것이 있다. 이를 해결하는 것이 var로 정의하는 것이다.
+            </p>
+            <input type="button" value="black" onclick="
+                var target = document.querySelector('body');
+                if(this.value === 'black'){
+                    target.style.backgroundColor='black';
+                    target.style.color='white';
+                    this.value = 'white';
+                }else{
+                    target.style.backgroundColor='white';
+                    target.style.color='black';
+                    this.value = 'black';
+                }
+            ">
+
+            <h3>배열(array)과 반복문(loo)</h3>
+            <a href="ex_javascript.html">array</a>
+            <br><a href="ex_javascript.html">loop</a>
+            <br><a href="ex_javascript.html">array & loop</a>
+            <p>
+                자 이제 짜증나는 것을 없애자!!! 앞서 black, white 모드로 인해서 a 태그 안에 있는 것들이 보이고 또는 안보이는 현상이 발생했다.
+                이를 이제 해결해 보자.
+            </p>
+            <input type="button" value="black" onclick="
+                var target = document.querySelector('body');
+                if(this.value === 'black'){
+                    target.style.backgroundColor='black';
+                    target.style.color='white';
+                    this.value = 'white';
+                    
+                    var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length){
+                        alist[i].style.color = 'white';
+                        i = i + 1;
+                    }
+                }else{
+                    target.style.backgroundColor='white';
+                    target.style.color='black';
+                    this.value = 'black';
+                    
+                    var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length){
+                        alist[i].style.color = 'black';
+                        i = i + 1;
+                    }
+                }
+            ">
+
+            <h3><a href="ex_javascript.html">함수(function)</a></h3>
+            <p>
+                특정 코드가 반복되지만 연속적으로 되어 있지 않다면 반복문을 사용하기가 힘들다. 이때 함수가 사용된다. 
+            </p>
+            <script>
+                function blackWhiteHandler(self){
+                    var target = document.querySelector('body');
+                    if(self.value === 'black'){
+                        target.style.backgroundColor='black';
+                        target.style.color='white';
+                        self.value = 'white';
+                        
+                        var alist = document.querySelectorAll('a');
+                        var i = 0;
+                        while(i < alist.length){
+                            alist[i].style.color = 'white';
+                            i = i + 1;
+                        }
+                    }else{
+                        target.style.backgroundColor='white';
+                        target.style.color='black';
+                        self.value = 'black';
+                        
+                        var alist = document.querySelectorAll('a');
+                        var i = 0;
+                        while(i < alist.length){
+                            alist[i].style.color = 'black';
+                            i = i + 1;
+                        }
+                    }
+                }
+            </script>
+            <input type="button" value="black" onclick="
+                blackWhiteHandler(this)
+            ">
+            <input type="button" value="black" onclick="
+                blackWhiteHandler(this)
+            ">
+
+            <h3><a href="ex_javascript.html">객체(object)</a></h3>
+            <p>
+                refactoring을 하기위해 function을 많이 사용하다보면 function이 서로 겹치게 될 수도 있게 된다.
+                이렇게 되면 함수가 충돌하게 되고, 이러면 에러가 난다.
+                <br>객체는 서로 연관된 함수와 변수를 수납하는 용도로 사용되기도 한다. 폴더의 관점으로 봐도 무방하다?
+                <br>객체에 포함되어 있는 함수는 method라 한다.
+                <br>배열과 다르게 객체는 순서 없이 정리된다.
+            </p>
+
+            <h3>라이브러리와 프래임워크</h3>
+            <p>
+                jQuery / CDN을 이용하면 다운로드 없이 라이브러리를 이용할 수 있다.
+            </p>
+
+            <h3>UI vs API</h3>
+            <p>
+                alert과 같은 것이 API이다. 
             </p>
         </div>
     </div>
